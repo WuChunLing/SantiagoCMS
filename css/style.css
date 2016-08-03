@@ -1,0 +1,222 @@
+body
+{
+	margin:0;
+}
+/*头部*/
+#head
+{
+	width:100%;
+	height:70px;
+	background:url(../images/bg.jpg) #0095dd;
+	position:fixed;
+	padding:20px;
+}
+
+.left
+{
+	font-size:25px;
+	color:white;
+	font-family:黑体;
+}
+
+.right
+{
+	font-size:18px;
+	color:white;
+	font-family:微软雅黑;
+}
+
+#head-left
+{
+	float:left;
+}
+
+#head-right 
+{
+	float:right;
+	color:white;
+	font-size:15px;
+}
+#head-right a
+{
+	color:white;
+}
+#head-right a:hover
+{
+	color:purple;
+	background:white;
+	cursor :pointer;
+	border:1px white solid;
+}
+#head-right span
+{
+	margin-right:20px;
+	margin-top:10px;
+}
+
+/*导航*/
+#mynav
+{
+	width:15%;
+	height:100%;
+	float:left;
+	position:fixed;
+	top:70px;
+	border-right:1px #b4b4b4 solid;
+	background:#efefef;
+}
+#mynav ul li span
+{
+	float:right;
+}
+.Nav a
+{
+	color:#575757;
+	background:#efefef;
+	height:48px;
+	width:100%;
+}
+.Nav a:hover
+{
+	color:purple;
+	cursor :pointer;
+	background:white;
+}
+#mynav ul li
+{
+	color:#333333;
+	height:50px;
+	line-height:50px;
+	font-size:16px;
+	border-bottom:2px #d5d5d5 solid ;
+}
+
+/*展示面板*/
+.display
+{
+	width:85%;
+	height:100%;
+	background:white;
+	padding:15px;
+	position:absolute;
+	right:0;
+	top:116px;
+	display:none;
+	z-index:-1;
+}
+.display table input
+{
+	width:100%;
+	background:white;
+}
+p
+{
+	font-size:15px;
+	color:gray;
+}
+#checkMeau  hr
+{
+	color:red;
+	height:5px;
+}
+
+#checkMeau
+{
+	display:block;
+}
+
+#send_two_meau_form
+{
+	display:none;
+}
+#changeSelsect
+{
+	background: url(../images/yes.png);
+	width: 80%;
+	height: 30px;
+	margin: 0 auto;
+
+}
+#form_div
+{
+	border: 1px solid #80bfff;
+	/*padding-bottom: 30px;*/
+	/*background: red;*/
+}
+#form_head
+{
+	width:100%;
+	height: 40px;
+	background: url(../images/bg1.jpg);
+	margin-bottom: 10px;
+}
+#progress_div
+{
+	width: 100%;
+	margin-bottom: 0;
+	position: relative;
+	bottom: 0;
+	display: none;
+	z-index: 2000;
+}
+#success_send
+{
+		z-index: 2000;
+}
+#form_head_left{float: left;}
+#form_head_right{float: right;}
+.form_head_left
+{
+	width: 50%;
+	height: 100%;
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	background:url(../images/2.jpg);
+}
+.form_head_right
+{
+	width: 50%;
+	height: 100%;
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+	color: #45b7ed;
+	font-family: Arial, Helvetica, sans-serif ;
+	font-weight: bold;
+	width: 50%;
+	height: 100%;
+	/*background: green;*/
+}
+.file_message_error
+{
+	color: red;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+  display: none;
+  opacity: .5;
+}
+
+/*页脚*/
+#foot
+{
+	width:100%;
+	height:40px;
+	background:url(../images/bg.jpg) #0095dd;
+	position:fixed;
+	bottom:0;
+	color:white;
+	line-height:50px;
+	text-align:center;
+}
+

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
+    <link href="images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/onload.css">
+    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nosession.js"></script>	
+    <script src="js/onload.js"></script> <!-- 登录   js代码 -->
+</head>
+<body>
+    <div class="container">
+        <header>
+                <h1><span></span></h1><br><br><br>
+        </header>
+
+        <section>				
+            <div id="container_demo" >
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <form  id="load_form" autocomplete="on"> 
+                            <h1 style="font-size:25px">圣地亚哥官网后台管理系统</h1> 
+                            <p> 
+                                <label for="username" class="uname" data-icon="u" > 账户 </label>
+                                 <input id="user" name="user" required="required" type="text" placeholder="请输入账号"/>
+                            </p>
+
+                            <p> 
+                                <label for="password" class="youpasswd" data-icon="p"> 密码</label>
+                                <input id="password" name="password" required="required" type="password" placeholder="请输入密码" /> 
+                            </p>
+
+                            <p class="keeplogin"> 
+								<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+								<label for="loginkeeping">记住密码</label>
+							</p>
+
+                            <p id="message" style="color:red;"></p>
+
+                            <p class="login button"> 
+                                <input type="button" id="load_button"  value="登录" /> 
+							</p>
+
+                            <p class="change_link">
+								<a href="#" class="to_register">伯爵科技</a>
+							</p>
+                        </form>
+
+                    </div>						
+                </div>
+            </div>  
+        </section>
+
+    </div>
+
+</body>
+</html>
+

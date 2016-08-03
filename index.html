@@ -1,0 +1,364 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
+  <meta name="Generator" content="sublime_text">
+  <meta name="Author" content="吴纯玲">
+  <meta name="Keywords" content="后台,管理系统">
+  <meta name="Description" content="由广东海洋大学伯爵科技团队制作的后台管理系统">
+
+  <link href="images/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap-glyphicons/1.0/css/bootstrap-glyphicons.css">
+  <link rel="stylesheet" href="css/style.css"><!-- 页面的样式代码 -->
+  <link rel="stylesheet" href="css/formStyle.css"><!-- 表单的样式代码 --> 
+
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script> 
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/changePage.js"></script>
+  <script src="js/nosession.js"></script>
+  <script src="js/judgeAdmin.js"></script>
+  <script src="js/checkMeau.js"></script> 
+  <script src="js/sendMeau1.js"></script>
+  <script src="js/judgeAdmin.js"></script>
+  <script src="js/fileValidation.js"></script>
+  <script src="js/formValidation.js"></script>
+  <script src="js/chooseSendType.js"></script> 
+  <script src="js/update.js"></script> 
+  <script src="js/getMeau.js"></script>
+  <script src="js/adminList.js"></script> 
+
+  <title>圣地亚哥后台管理系统</title>
+
+</head> 
+
+<body >
+	<div class="backdrop"></div>
+	<!--start  头部head -->
+    <div id="head" >
+		<div id="head-left" class="">
+			<span class="left">
+				<strong>
+					<img src="images/Teamlogo.jpg"/width="190px;"height="40px";/>| 
+				</strong> 
+			</span>
+			<span class="right">圣地亚哥官网后台管理系统</span>
+		</div>
+		<div id="head-right" class="">
+			<span id="loadText" style="font-size:13px;">请先登录</span>
+			<a href="http://119.29.169.59/webapp/frame/index.jsp" target="_blank">
+				<span class="glyphicon glyphicon-home">&nbsp;官网</span>
+			</a>
+			<a href="onload.html">
+				<span class="glyphicon glyphicon-off">&nbsp;退出</span>
+			</a>		
+		</div>
+ 	</div>
+	<!-- end  头部head -->
+
+	<!-- strat 竖直总导航条 -->
+  	<div id="mynav">
+		<ul class="nav  nav-tabs nav-stacked">
+			<li class="Nav" id="check_meau">
+				<a ><strong>查看菜单
+					<span class="glyphicon glyphicon-list-alt"></span>
+				</strong></a>
+			</li>
+			<li class="Nav">
+				<a><strong>上传菜单
+					<span class="glyphicon glyphicon-send"></span>
+				</strong></a>
+			</li>
+			<li id="admin"class="Nav">
+				<a><strong>管理员管理
+					<span class="glyphicon glyphicon-user"></span>
+				</strong></a>
+			</li>
+	 </ul>
+  	</div>
+	<!--end  竖直总导航条 -->
+
+	<!-- start 查看菜单 -->
+	<div id="checkMeau" class="display">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				菜单列表
+			</div>
+			<div class="panel-body">
+				<p>您可以进行以下操作：删除菜单或者修改菜单名字。</p>
+				<form class="form-horizontal" id="send_new_meau_form"enctype="multipart/form-data">
+					<table class="table table-bordered table-hover"id="checkMeau_table">
+						<thead>
+							<tr>
+								<th>菜单ID</th>
+								<th>菜单级别</th>
+								<th>菜单名字</th>
+								<th>图片</th>
+								<th>文件</th>
+								<th>具体操作</th>
+								<th>菜单序号</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</form>
+		 	</div>
+
+	    	<div class="panel-footer">
+	    		共找到
+	    		<span class="record"></span>条记录
+	    	</div>
+
+     	</div>
+    </div>
+	<!-- end 查看菜单 -->
+
+	<!--start 上传菜单-->
+	<div id="sendMeau" class="display">
+	  	<div id="form_div" style="width:50%;margin:0 auto;">
+
+			<div id="form_head">
+				<div class="form_head_left"id="form_head_left">上传一级菜单</div>
+				<div class="form_head_right"id="form_head_right">上传二级菜单</div>
+			</div>
+
+		 	<select style="display:none;"class="form-control"id="sendType" placeholder="请选择上传类型" > 
+				<option  value="0">上传一级菜单</option> 
+				<option  value="1">上传二级菜单</option> 
+			</select>
+
+			<form class="form-horizontal" id="send_one_meau_form" enctype="multipart/form-data" style="margin-bottom:25px;">
+				<br>
+			  	<div class="form-group">
+					<label for="input_one_meau" class="col-sm-3 control-label">菜单名字</label>
+					<div class="col-sm-7">
+						<input type="text" id="input_one_meau"  class="form-control" maxlength="15" placeholder="请输入新增一级菜单名字" name="menuName" required/>
+				  	</div>
+			  	</div>	
+			  	<div class="form-group">
+				  	<label for="input_photo" class="col-sm-3 control-label">上传图片</label>
+				  	<div class="col-sm-7">
+						<div class="uploader green">
+							<input type="text" class="filename" id="input_one_meau_photo" value="请选择需要上传的图片"readonly="readonly"/>
+							<input type="button"  class="button" value="浏览..."/>
+							<input type="file" id="one_picture" name="photofile" />
+						</div>
+						<p class="file_message_error"></p>
+				  	</div>
+			  	</div>
+			  	<div class="form-group">
+				  	<label for="input_file" class="col-sm-3 control-label">PC端文件</label>
+				  	<div class="col-sm-7">
+						<div class="uploader red">
+							<input type="text" class="filename" value="请选择需要上传的PC端文件"readonly="readonly"id="zipfile1"/>
+							<input type="button" class="button" value="浏览..."/>
+							<input type="file"name="zipfile1" id="one-pc-file"/>
+						</div>
+						<p class="file_message_error"></p>
+				  	</div>
+			  	</div>
+			  	<div class="form-group">
+				  	<label for="input_file" class="col-sm-3 control-label">移动端文件</label>
+				  	<div class="col-sm-7">
+						<div class="uploader orange">
+							<input type="text" class="filename" value="请选择需要上传的移动端文件" readonly="readonly"id="zipfile"/>
+							<input type="button"  class="button" value="浏览..."/>
+							<input type="file"name="zipfile" id="one-pdt-file" />
+						</div>
+						<p class="file_message_error"></p>
+				  	</div>
+			  	</div>
+				<center>
+					<button id="submit_one_meau" class="btn btn-primary btn-bg" >确认上传一级菜单 </button>
+				</center>
+			</form>
+
+			<form class="form-horizontal" id="send_two_meau_form"  enctype="multipart/form-data"  style="margin-bottom:25px;">
+				<br>
+			  	<div class="form-group">
+				  	<label for="get_meau_focus" class="col-sm-3 control-label">一级菜单</label>
+				  	<div class="col-sm-7">
+					 	<select class="form-control"  id="get_meau_focus" name="menu.menuId"> 
+					 	</select>
+				  	</div>
+			  	</div>
+			  	<div class="form-group">
+				  	<label for="input_two_meau" class="col-sm-3 control-label">二级菜单名字</label>
+				  	<div class="col-sm-7">
+						<input type="text" id="input_two_meau"  class="form-control" maxlength="15" placeholder="请输入新增二级菜单名字" name="menuName"required/>
+				  	</div>
+			  	</div>	
+			  	<div class="form-group">
+				  	<label for="input_photo" class="col-sm-3 control-label">上传图片</label>
+				  	<div class="col-sm-7">
+						<div class="uploader green">
+							<input type="text" class="filename" value="请选择需要上传的图片"readonly="readonly"id="input_two_meau_photo"/>
+							<input type="button" name="photos" class="button" value="浏览..."/>
+							<input type="file" name="photofile" id="two_picture"class="photosVail"/>
+							<p class="file_message_error"></p>
+						</div>
+				 	</div>
+			  	</div>
+			   	<div class="form-group">
+				  	<label for="input_file" class="col-sm-3 control-label">PC端文件</label>
+				 	<div class="col-sm-7">
+						<div class="uploader red">
+							<input type="text" class="filename" value="请选择需要上传的PC端文件"readonly="readonly"id="two_zipfile1"/>
+							<input type="button"  class="button" value="浏览..."/>
+							<input type="file" name="zipfile1" id="two-pc-file"/>
+							<p class="file_message_error"></p>
+						</div>
+				  	</div>
+			  	</div>
+			  	<div class="form-group">
+				  	<label for="input_file" class="col-sm-3 control-label">移动端文件</label>
+				  	<div class="col-sm-7">
+						<div class="uploader orange">
+							<input type="text" class="filename" value="请选择需要上传的移动端文件" readonly="readonly"id="two_zipfile"/>
+							<input type="button"class="button" value="浏览..."/>
+							<input type="file"  name="zipfile"  id="two-pdt-file" />
+						</div>
+						<p class="file_message_error"></p>
+				  	</div>
+			 	</div>
+			  	<center>
+			  		<button  id="submit_two_meau"class="btn btn-primary btn-bg">确认上传二级菜单</button>
+			 	</center>
+			</form>
+
+			<!-- 进度条 start -->
+			<p id="success_send"></p>
+			<div class="progress progress-striped active"id="progress_div">
+		   		<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"id="progress_percent"></div>		   		
+			</div>
+			<!-- 进度条 end-->
+	  	</div>
+	</div>
+	<!--end 上传菜单 -->
+
+
+
+	<!-- start 管理员管理 -->
+    <div id="adminList" class="display">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				超级管理员，您好！
+			</div>
+			<div class="panel-body">
+				<p>
+					您可以进行一下操作：查看管理员信息信息，修改管理员信息，删除管理员等操作。
+					<button class="btn btn-primary btn-sm" type="button"style="float:right;"id="addAdmin">添加管理员</button> 
+				</p><br />
+				<form id="admin_form"enctype="multipart/form-data">
+					<table class="table table-bordered table-hover"id="adminListTable">
+						<thead>
+							<tr>
+								<th>管理员ID</th>
+								<th>管理员帐号</th>
+								<th>管理员密码</th>
+								<th>管理员姓名</th> 
+								<th>管理员邮箱</th>
+								<th>管理员权限</th>
+								<th>具体操作</th>
+							</tr>
+						</thead>
+						<tbody>			
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="panel-footer">共找到<span class="record"></span>条记录</div>
+		</div>
+	</div>
+	<!-- end 管理员管理 -->
+
+
+	<!--start 页脚foot -->
+		<div id="foot" class="">
+			Copyright&nbsp;&copy;&nbsp;&nbsp;Earl&nbsp;Technology&nbsp;All Rights Reserved
+		</div>
+	<!--end 页脚foot -->
+
+	<!-- start 弹框 -->
+	<div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title"></h4>
+				</div>
+
+				<div class="modal-body">
+					<center><p id="modalmessage"></p></center>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"id="close_modal">关闭</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- end 弹框 -->
+
+	<!-- start 菜单文件为空弹框 -->
+	<div class="modal fade" id="mynullmodal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title">查看菜单文件</h4>
+				</div>
+
+				<div class="modal-body">
+					<center><p id="modalmessage">文件为空！</p></center>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"id="close_modal">关闭</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- end 菜单文件为空弹框  -->
+
+	<!--start 删除确认 弹框 -->
+	<div class="modal fade" id="my_del_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+						<span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title"></h4>
+				</div>
+				<div class="modal-body">
+					<center><p id="modalmessage"></p></center>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"id="sure_del" >确认</button>
+					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"id="cancel_del">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end 删除确认弹框 -->
+	
+</body>
+</html>
+
